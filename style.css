@@ -36,7 +36,7 @@ html, body { margin: 0; height: 100%; background: #0b1220; }
   z-index: 0;
   background:
     linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)),
-    url("flag.svg") center / contain no-repeat;
+    url("flag.svg") center / 100% 100% no-repeat;
   animation: wave 5s ease-in-out infinite;
   transform-origin: left center;
 }

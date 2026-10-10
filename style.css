@@ -32,15 +32,18 @@ html, body { margin: 0; height: 100%; background: #0b1220; }
   .star { transform-box: fill-box; transform-origin: center; }
 .flag {
   position: fixed;
-  inset: 0;
+  inset: -5%;
   z-index: 0;
   background:
-    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.72)),
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)),
     url("flag.svg") center / cover no-repeat;
-  animation: wave 6s ease-in-out infinite;
+  animation: wave 5s ease-in-out infinite;
   transform-origin: left center;
 }
 @keyframes wave {
-  0%, 100% { transform: perspective(600px) rotateY(0deg) scaleX(1); }
-  50%      { transform: perspective(600px) rotateY(8deg) scaleX(1.03); }
+  0%   { transform: perspective(800px) rotateY(0deg) skewY(0deg) scale(1.05); }
+  25%  { transform: perspective(800px) rotateY(6deg) skewY(1.2deg) scale(1.06); }
+  50%  { transform: perspective(800px) rotateY(-4deg) skewY(-0.8deg) scale(1.04); }
+  75%  { transform: perspective(800px) rotateY(5deg) skewY(0.6deg) scale(1.06); }
+  100% { transform: perspective(800px) rotateY(0deg) skewY(0deg) scale(1.05); }
 }

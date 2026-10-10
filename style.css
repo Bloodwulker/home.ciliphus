@@ -30,3 +30,17 @@ html, body { margin: 0; height: 100%; background: #0b1220; }
     opacity: 0;
   }
   .star { transform-box: fill-box; transform-origin: center; }
+.flag {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.72)),
+    url("flag.svg") center / cover no-repeat;
+  animation: wave 6s ease-in-out infinite;
+  transform-origin: left center;
+}
+@keyframes wave {
+  0%, 100% { transform: perspective(600px) rotateY(0deg) scaleX(1); }
+  50%      { transform: perspective(600px) rotateY(8deg) scaleX(1.03); }
+}

@@ -1,12 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 100">
-  <rect width="190" height="100" fill="#b22234"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1900 1000">
+  <rect width="1900" height="1000" fill="#b22234"/>
   <g fill="#fff">
-    <rect y="7.69" width="190" height="7.69"/>
-    <rect y="23.08" width="190" height="7.69"/>
-    <rect y="38.46" width="190" height="7.69"/>
-    <rect y="53.85" width="190" height="7.69"/>
-    <rect y="69.23" width="190" height="7.69"/>
-    <rect y="84.62" width="190" height="7.69"/>
+    <rect y="76.9" width="1900" height="76.9"/>
+    <rect y="230.8" width="1900" height="76.9"/>
+    <rect y="384.6" width="1900" height="76.9"/>
+    <rect y="538.5" width="1900" height="76.9"/>
+    <rect y="692.3" width="1900" height="76.9"/>
+    <rect y="846.2" width="1900" height="76.9"/>
   </g>
-  <rect width="76" height="53.85" fill="#3c3b6e"/>
+  <rect width="760" height="538.5" fill="#3c3b6e"/>
+  <g fill="#fff">
+    <g id="row">
+      <polygon points="30,20 36,38 55,38 40,50 46,68 30,56 14,68 20,50 5,38 24,38"/>
+      <polygon points="110,20 116,38 135,38 120,50 126,68 110,56 94,68 100,50 85,38 104,38"/>
+      <polygon points="190,20 196,38 215,38 200,50 206,68 190,56 174,68 180,50 165,38 184,38"/>
+      <polygon points="270,20 276,38 295,38 280,50 286,68 270,56 254,68 260,50 245,38 264,38"/>
+      <polygon points="350,20 356,38 375,38 360,50 366,68 350,56 334,68 340,50 325,38 344,38"/>
+      <polygon points="430,20 436,38 455,38 440,50 446,68 430,56 414,68 420,50 405,38 424,38"/>
+    </g>
+    <use href="#row" y="70"/>
+    <use href="#row" y="140"/>
+    <use href="#row" y="210"/>
+    <use href="#row" y="280"/>
+    <use href="#row" x="40" y="35"/>
+    <use href="#row" x="40" y="105"/>
+    <use href="#row" x="40" y="175"/>
+    <use href="#row" x="40" y="245"/>
+  </g>
 </svg>

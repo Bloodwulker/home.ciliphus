@@ -1,0 +1,32 @@
+html, body { margin: 0; height: 100%; background: #0b1220; }
+  .cursor-trail {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: visible;
+  }
+  .cursor-trail__glow {
+    fill: none;
+    stroke-width: 14;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: blur(6px);
+    opacity: 0.9;
+  }
+  .cursor-trail__line {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .cursor-trail__spark { fill: #fff; filter: drop-shadow(0 0 6px #fff); }
+  .cursor-trail__ripple {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2;
+    opacity: 0;
+  }
+  .star { transform-box: fill-box; transform-origin: center; }

@@ -32,10 +32,13 @@ html, body { margin: 0; height: 100%; background: #0b1220; }
   .star { transform-box: fill-box; transform-origin: center; }
 .flag {
   position: fixed;
-  inset: 0;
-  width: 100%;
+  top: 0;
+  left: 50%;
   height: 100%;
-  object-fit: contain;
+  width: auto;
+  min-width: 100%;
+  transform: translateX(-50%);
+  object-fit: cover;
   z-index: 0;
   filter: brightness(0.35);
 }

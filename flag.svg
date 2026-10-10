@@ -9,22 +9,35 @@
     <rect y="846.2" width="1900" height="76.9"/>
   </g>
   <rect width="760" height="538.5" fill="#3c3b6e"/>
-  <g fill="#fff">
-    <g id="row">
-      <polygon points="30,20 36,38 55,38 40,50 46,68 30,56 14,68 20,50 5,38 24,38"/>
-      <polygon points="110,20 116,38 135,38 120,50 126,68 110,56 94,68 100,50 85,38 104,38"/>
-      <polygon points="190,20 196,38 215,38 200,50 206,68 190,56 174,68 180,50 165,38 184,38"/>
-      <polygon points="270,20 276,38 295,38 280,50 286,68 270,56 254,68 260,50 245,38 264,38"/>
-      <polygon points="350,20 356,38 375,38 360,50 366,68 350,56 334,68 340,50 325,38 344,38"/>
-      <polygon points="430,20 436,38 455,38 440,50 446,68 430,56 414,68 420,50 405,38 424,38"/>
+  <g fill="#fff" id="star">
+    <polygon points="0,-18 5.3,-5.8 18.5,-5.8 8,-1 12.5,12 -0,4.5 -12.5,12 -8,-1 -18.5,-5.8 -5.3,-5.8"/>
+  </g>
+  <g>
+    <!-- 5 rows of 6 -->
+    <g id="r6">
+      <use href="#star" x="63" y="40"/>
+      <use href="#star" x="190" y="40"/>
+      <use href="#star" x="316" y="40"/>
+      <use href="#star" x="443" y="40"/>
+      <use href="#star" x="570" y="40"/>
+      <use href="#star" x="696" y="40"/>
     </g>
-    <use href="#row" y="70"/>
-    <use href="#row" y="140"/>
-    <use href="#row" y="210"/>
-    <use href="#row" y="280"/>
-    <use href="#row" x="40" y="35"/>
-    <use href="#row" x="40" y="105"/>
-    <use href="#row" x="40" y="175"/>
-    <use href="#row" x="40" y="245"/>
+    <use href="#r6" y="0"/>
+    <use href="#r6" y="108"/>
+    <use href="#r6" y="216"/>
+    <use href="#r6" y="324"/>
+    <use href="#r6" y="432"/>
+    <!-- 4 rows of 5, offset -->
+    <g id="r5">
+      <use href="#star" x="126" y="94"/>
+      <use href="#star" x="253" y="94"/>
+      <use href="#star" x="380" y="94"/>
+      <use href="#star" x="506" y="94"/>
+      <use href="#star" x="633" y="94"/>
+    </g>
+    <use href="#r5" y="0"/>
+    <use href="#r5" y="108"/>
+    <use href="#r5" y="216"/>
+    <use href="#r5" y="324"/>
   </g>
 </svg>

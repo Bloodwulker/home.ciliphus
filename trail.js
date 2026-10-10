@@ -1,4 +1,7 @@
-(() => {
+(async () => {
+  const res = await fetch("trail.svg");
+  const text = await res.text();
+  document.body.insertAdjacentHTML("beforeend", text);
   const svg = document.querySelector(".cursor-trail");
   const glow = svg.querySelector(".cursor-trail__glow");
   const line = svg.querySelector(".cursor-trail__line");

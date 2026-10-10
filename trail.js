@@ -34,7 +34,30 @@
     );
     for (let i = 0; i < 10; i++) spawn(e.clientX, e.clientY, 2.4);
   });
+addEventListener("touchmove", (e) => {
+  const t = e.touches[0];
+  if (!t) return;
+  mx = t.clientX; my = t.clientY;
+  moving = true;
+  svg.dataset.visible = "true";
+  svg.dataset.moving = "true";
+  clearTimeout(idle);
+  idle = setTimeout(() => { moving = false; svg.dataset.moving = "false"; }, 80);
+  if (Math.random() < 0.65) spawn(mx, my);
+  e.preventDefault();
+}, { passive: false });
 
+addEventListener("touchstart", (e) => {
+  const t = e.touches[0];
+  if (!t) return;
+  ripple.setAttribute("cx", t.clientX);
+  ripple.setAttribute("cy", t.clientY);
+  ripple.animate(
+    [{ r: 8, opacity: 0.8 }, { r: 46, opacity: 0 }],
+    { duration: 450, easing: "ease-out" }
+  );
+  for (let i = 0; i < 10; i++) spawn(t.clientX, t.clientY, 2.4);
+}, { passive: true });
   function spawn(x, y, kick = 1) {
     const use = document.createElementNS(ns, "use");
     use.setAttribute("href", "#sparkler-star");

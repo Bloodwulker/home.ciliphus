@@ -51,9 +51,12 @@
       b.el.style.left = b.x + "%";
       b.el.style.top = b.y + "%";
       if (Math.random() < 0.35) {
-        const r = b.el.getBoundingClientRect();
-        spark(r.left + r.width / 2, r.top + r.height / 2);
-      }
+  const r = b.el.getBoundingClientRect();
+  const cx = r.left + r.width / 2;
+  const cy = r.top + r.height / 2;
+  const len = Math.hypot(b.vx, b.vy) || 1;
+  spark(cx - (b.vx / len) * 46, cy - (b.vy / len) * 46);
+}
     });
     sparks();
     raf = requestAnimationFrame(frame);

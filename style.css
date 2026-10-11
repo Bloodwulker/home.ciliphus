@@ -71,10 +71,11 @@ html, body {
 }
 
 .launchers > .badge {
-  left: 50%;
   top: 46%;
   transform: translate(-50%, -50%);
 }
+.launchers > .badge[data-fan="dailywire"] { left: 38%; }
+.launchers > .badge[data-fan="rumble"] { left: 62%; }
 .launchers > .badge::after {
   content: attr(data-name);
   position: absolute;
@@ -106,10 +107,11 @@ html, body {
 
 .fan {
   position: absolute;
-  left: 50%;
   top: 46%;
   pointer-events: none;
 }
+#dailywire { left: 38%; }
+#rumble { left: 62%; }
 .fan .sub {
   opacity: 0;
   pointer-events: none;
@@ -119,6 +121,14 @@ html, body {
   background: var(--face) center 18% / cover no-repeat;
   box-shadow: 0 0 0 3px #eee, 0 0 0 6px #222, 0 4px 10px rgba(0,0,0,0.6);
   transition: transform 0.35s ease, opacity 0.35s ease;
+}
+.fan.open .sub:hover {
+  box-shadow:
+    0 0 0 3px #fff,
+    0 0 0 7px #c41230,
+    0 0 18px 4px #fff,
+    0 0 36px 8px #0a3161,
+    0 0 56px 12px rgba(196, 18, 48, 0.65);
 }
 .fan .sub::after {
   content: attr(data-name);

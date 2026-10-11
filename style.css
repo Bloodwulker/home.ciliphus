@@ -78,6 +78,9 @@ html, body {
   transform: translate(-50%, -50%);
   transition: none;
 }
+.launchers > .badge.preroam {
+  animation: rumble 0.12s linear infinite;
+}
 .launchers.roaming > .badge {
   transition: left 4s ease-in-out, top 4s ease-in-out;
 }

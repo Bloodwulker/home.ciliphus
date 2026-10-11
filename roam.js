@@ -62,6 +62,7 @@
     raf = requestAnimationFrame(frame);
   }
 function start() {
+  if (window.ciliphusHold) { idle = setTimeout(start, 10000); return; }
   document.querySelectorAll(".fan.open").forEach(f => f.classList.remove("open"));
   document.querySelectorAll(".badge.lit").forEach(b => b.classList.remove("lit"));
   badges.forEach(b => b.el.classList.add("preroam"));

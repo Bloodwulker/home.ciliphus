@@ -66,9 +66,13 @@ html, body { margin: 0; height: 100%; background: #0b1220; }
 .launchers > .star { left: 50%; top: 46%; transform: translate(-50%,-50%); }
 .fan { position: absolute; left: 50%; top: 46%; pointer-events: none; }
 .fan .sub {
-  opacity: 0; pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
   transition: transform 0.35s ease, opacity 0.35s ease;
   background-size: cover;
+  background-position: center top;
+  color: #fff;
+  text-shadow: 0 1px 3px #000;
 }
 .fan.open { pointer-events: auto; }
 .fan.open .sub { opacity: 1; pointer-events: auto; }

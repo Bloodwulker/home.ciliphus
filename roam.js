@@ -13,26 +13,26 @@
   const bits = [];
   let idle, raf, pre, roaming = false;
 
-  function spark(px, py) {
-    const group = document.querySelector(".sparklers");
-    if (!group) return;
-    const use = document.createElementNS(ns, "use");
-    use.setAttribute("href", "#sparkler-star");
-    use.setAttribute("class", "star");
-    use.setAttribute("fill", COLORS[(Math.random() * COLORS.length) | 0]);
-    const ang = Math.random() * Math.PI * 2;
-    const spd = 0.6 + Math.random() * 1.8;
-    bits.push({
-      el: use, x: px, y: py,
-      vx: Math.cos(ang) * spd,
-      vy: Math.sin(ang) * spd - 0.4,
-      life: 1,
-      rot: Math.random() * 360,
-      spin: (Math.random() - 0.5) * 18,
-      scale: 1.6 + Math.random() * 2.4
-    });
-    group.appendChild(use);
-  }
+  function spark(px, py, kick = 1) {
+  const group = document.querySelector(".sparklers");
+  if (!group) return;
+  const use = document.createElementNS(ns, "use");
+  use.setAttribute("href", "#sparkler-star");
+  use.setAttribute("class", "star");
+  use.setAttribute("fill", COLORS[(Math.random() * COLORS.length) | 0]);
+  const ang = Math.random() * Math.PI * 2;
+  const spd = (0.6 + Math.random() * 1.8) * kick;
+  bits.push({
+    el: use, x: px, y: py,
+    vx: Math.cos(ang) * spd,
+    vy: Math.sin(ang) * spd - 0.4,
+    life: 1,
+    rot: Math.random() * 360,
+    spin: (Math.random() - 0.5) * 18,
+    scale: (1.6 + Math.random() * 2.4) * Math.min(kick, 2)
+  });
+  group.appendChild(use);
+}
   function sparks() {
     for (let i = bits.length - 1; i >= 0; i--) {
       const b = bits[i];
@@ -76,14 +76,14 @@
         b.y = parseFloat(getComputedStyle(b.el).top) / innerHeight * 100;
       });
       if (logo) {
-        logo.classList.remove("preroam");
-        const r = logo.getBoundingClientRect();
-        const cx = r.left + r.width / 2;
-        const cy = r.top + r.height / 2;
-        for (let i = 0; i < 18; i++) spark(cx, cy);
-        logo.classList.add("boom");
-        setTimeout(() => { logo.style.visibility = "hidden"; }, 400);
-      }
+  logo.classList.remove("preroam");
+  const r = logo.getBoundingClientRect();
+  const cx = r.left + r.width / 2;
+  const cy = r.top + r.height / 2;
+  for (let i = 0; i < 70; i++) spark(cx, cy, 6);
+  logo.classList.add("boom");
+  setTimeout(() => { logo.style.visibility = "hidden"; }, 500);
+}
       roaming = true;
       root.classList.add("roaming");
       raf = requestAnimationFrame(frame);

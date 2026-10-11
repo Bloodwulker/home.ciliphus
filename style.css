@@ -80,7 +80,7 @@ html, body {
 .launchers > .badge[data-fan="dailywire"] { left: 50%; top: 28%; }
 .launchers > .badge[data-fan="slot8"]     { left: 38%; top: 34%; }
 .launchers > .badge[data-fan="slot7"]     { left: 32%; top: 50%; }
-.launchers > .badge[data-fan="slot6"]     { left: 38%; top: 66%; }
+.launchers > .badge[data-fan="slot6test"]     { left: 38%; top: 66%; }
 .launchers > .badge[data-fan="slot5"]     { left: 50%; top: 72%; }
 .launchers > .badge[data-fan="slot4"]     { left: 62%; top: 66%; }
 .launchers > .badge[data-fan="youtube"]   { left: 68%; top: 50%; }

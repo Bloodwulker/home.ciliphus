@@ -171,7 +171,57 @@ html, body {
   white-space: nowrap;
 }
 .fan.open { pointer-events: auto; }
-.fan.open .sub { opacity: 1; pointer-events: auto; }
-.fan.open .sub:nth-child(1) { transform: translate(-150px, -10px); }
-.fan.open .sub:nth-child(2) { transform: translate(80px, -10px); }
-.fan.open .sub:nth-child(3) { transform: translate(-35px, 100px); }
+/* 1: directly under */
+.fan.open:has(.sub:nth-child(1):last-child) .sub:nth-child(1) {
+  transform: translate(0, 110px);
+}
+
+/* 2: both under */
+.fan.open:has(.sub:nth-child(2):last-child) .sub:nth-child(1) {
+  transform: translate(-70px, 110px);
+}
+.fan.open:has(.sub:nth-child(2):last-child) .sub:nth-child(2) {
+  transform: translate(70px, 110px);
+}
+
+/* 3: left, right, bottom */
+.fan.open:has(.sub:nth-child(3):last-child) .sub:nth-child(1) {
+  transform: translate(-150px, -10px);
+}
+.fan.open:has(.sub:nth-child(3):last-child) .sub:nth-child(2) {
+  transform: translate(80px, -10px);
+}
+.fan.open:has(.sub:nth-child(3):last-child) .sub:nth-child(3) {
+  transform: translate(-35px, 100px);
+}
+
+/* 4: top, right, bottom, left */
+.fan.open:has(.sub:nth-child(4):last-child) .sub:nth-child(1) {
+  transform: translate(0, -120px);
+}
+.fan.open:has(.sub:nth-child(4):last-child) .sub:nth-child(2) {
+  transform: translate(130px, 0);
+}
+.fan.open:has(.sub:nth-child(4):last-child) .sub:nth-child(3) {
+  transform: translate(0, 120px);
+}
+.fan.open:has(.sub:nth-child(4):last-child) .sub:nth-child(4) {
+  transform: translate(-130px, 0);
+}
+
+/* 5: pentagon, point at the bottom */
+.fan.open:has(.sub:nth-child(5):last-child) .sub:nth-child(1) {
+  transform: translate(0, 120px);
+}
+.fan.open:has(.sub:nth-child(5):last-child) .sub:nth-child(2) {
+  transform: translate(114px, 37px);
+}
+.fan.open:has(.sub:nth-child(5):last-child) .sub:nth-child(3) {
+  transform: translate(71px, -97px);
+}
+.fan.open:has(.sub:nth-child(5):last-child) .sub:nth-child(4) {
+  transform: translate(-71px, -97px);
+}
+.fan.open:has(.sub:nth-child(5):last-child) .sub:nth-child(5) {
+  transform: translate(-114px, 37px);
+}

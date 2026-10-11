@@ -43,9 +43,9 @@ vy: (Math.random() * 0.09 + 0.04) * (Math.random() < 0.5 ? -1 : 1)
       root.classList.remove("roaming");
       badges.forEach(b => { b.el.style.left = ""; b.el.style.top = ""; });
     }
-    idle = setTimeout(start, 5000);
+    idle = setTimeout(start, 10000);
   }
   addEventListener("pointermove", stop);
   addEventListener("keydown", stop);
-  idle = setTimeout(start, 5000);
+  idle = setTimeout(start, 10000);
 })();

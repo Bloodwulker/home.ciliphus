@@ -42,3 +42,36 @@ html, body { margin: 0; height: 100%; background: #0b1220; }
   z-index: 0;
   filter: brightness(0.35);
 }
+.launchers { position: fixed; inset: 0; z-index: 2; pointer-events: none; }
+.star {
+  pointer-events: auto;
+  position: absolute;
+  width: 92px; height: 92px;
+  border: 0; padding: 0; cursor: pointer;
+  background: center / 70% no-repeat, 
+    radial-gradient(circle at 40% 35%, #f4f4f4, #8a8a8a 55%, #3a3a3a);
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  color: #fff; font: 12px system-ui, sans-serif;
+  text-decoration: none; text-align: center; line-height: 150px;
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.35));
+}
+.star:hover { animation: rumble 0.15s linear infinite; filter: drop-shadow(0 0 12px #fff) drop-shadow(0 0 18px #c41230); }
+@keyframes rumble {
+  0% { transform: translate(0,0) rotate(0deg); }
+  25% { transform: translate(-1px,1px) rotate(-1deg); }
+  50% { transform: translate(1px,-1px) rotate(1deg); }
+  75% { transform: translate(-1px,-1px) rotate(-0.5deg); }
+  100% { transform: translate(0,0) rotate(0deg); }
+}
+.launchers > .star { left: 50%; top: 46%; transform: translate(-50%,-50%); }
+.fan { position: absolute; left: 50%; top: 46%; pointer-events: none; }
+.fan .sub {
+  opacity: 0; pointer-events: none;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  background-size: cover;
+}
+.fan.open { pointer-events: auto; }
+.fan.open .sub { opacity: 1; pointer-events: auto; }
+.fan.open .sub:nth-child(1) { transform: translate(-160px, -20px); }
+.fan.open .sub:nth-child(2) { transform: translate(70px, -20px); }
+.fan.open .sub:nth-child(3) { transform: translate(-45px, 110px); }

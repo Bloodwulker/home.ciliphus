@@ -93,9 +93,9 @@ function start() {
     bits.length = 0;
   }
   badges.forEach(b => b.el.classList.remove("preroam"));
-  idle = setTimeout(start, 10000);
+  idle = setTimeout(start, 60000);
 }
   addEventListener("pointermove", stop);
   addEventListener("keydown", stop);
-  idle = setTimeout(start, 10000);
+  idle = setTimeout(start, 60000);
 })();

@@ -88,7 +88,7 @@ html, body {
 .launchers > .badge[data-fan="dailywire"] { left: 50%; top: 16%; }
 .launchers > .badge[data-fan="slot8"]     { left: 26%; top: 24%; }
 .launchers > .badge[data-fan="slot7"]     { left: 14%; top: 50%; }
-.launchers > .badge[data-fan="slot6test"]     { left: 26%; top: 76%; }
+.launchers > .badge[data-fan="slot6"]     { left: 26%; top: 76%; }
 .launchers > .badge[data-fan="slot5"]     { left: 50%; top: 86%; }
 .launchers > .badge[data-fan="slot4"]     { left: 74%; top: 76%; }
 .launchers > .badge[data-fan="youtube"]   { left: 86%; top: 50%; }
@@ -145,7 +145,7 @@ html, body {
 #youtube   { left: 86%; top: 50%; }
 #slot4     { left: 74%; top: 76%; }
 #slot5     { left: 50%; top: 86%; }
-#slot6test     { left: 26%; top: 76%; }
+#slot6     { left: 26%; top: 76%; }
 #slot7     { left: 14%; top: 50%; }
 #slot8     { left: 26%; top: 24%; }
 

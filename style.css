@@ -71,11 +71,20 @@ html, body {
 }
 
 .launchers > .badge {
-  top: 46%;
   transform: translate(-50%, -50%);
 }
-.launchers > .badge[data-fan="dailywire"] { left: 38%; }
-.launchers > .badge[data-fan="rumble"] { left: 62%; }
+.launchers > .badge[data-fan="dailywire"] { left: 50%; top: 26%; }
+.launchers > .badge[data-fan="slot8"]     { left: 30%; top: 34%; }
+.launchers > .badge[data-fan="slot7"]     { left: 20%; top: 50%; }
+.launchers > .badge[data-fan="slot6"]     { left: 30%; top: 66%; }
+.launchers > .badge[data-fan="slot5"]     { left: 50%; top: 74%; }
+.launchers > .badge[data-fan="slot4"]     { left: 70%; top: 66%; }
+.launchers > .badge[data-fan="youtube"]   { left: 80%; top: 50%; }
+.launchers > .badge[data-fan="rumble"]    { left: 70%; top: 34%; }
+
+#dailywire { left: 50%; top: 26%; }
+#rumble    { left: 70%; top: 34%; }
+
 .launchers > .badge::after {
   content: attr(data-name);
   position: absolute;

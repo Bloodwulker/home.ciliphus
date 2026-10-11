@@ -83,6 +83,7 @@ html, body {
 }
 .launchers.roaming > .badge {
   transition: none;
+  animation: glow 1.2s ease-in-out infinite;
 }
 .launchers > .badge[data-fan="dailywire"] { left: 50%; top: 16%; }
 .launchers > .badge[data-fan="slot8"]     { left: 26%; top: 24%; }

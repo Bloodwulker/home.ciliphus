@@ -77,14 +77,14 @@ html, body {
 .launchers > .badge {
   transform: translate(-50%, -50%);
 }
-.launchers > .badge[data-fan="dailywire"] { left: 50%; top: 30%; }
-.launchers > .badge[data-fan="slot8"]     { left: 34%; top: 36%; }
-.launchers > .badge[data-fan="slot7"]     { left: 26%; top: 50%; }
-.launchers > .badge[data-fan="slot6"]     { left: 34%; top: 64%; }
-.launchers > .badge[data-fan="slot5"]     { left: 50%; top: 70%; }
-.launchers > .badge[data-fan="slot4"]     { left: 66%; top: 64%; }
-.launchers > .badge[data-fan="youtube"]   { left: 74%; top: 50%; }
-.launchers > .badge[data-fan="rumble"]    { left: 66%; top: 36%; }
+.launchers > .badge[data-fan="dailywire"] { left: 50%; top: 28%; }
+.launchers > .badge[data-fan="slot8"]     { left: 38%; top: 34%; }
+.launchers > .badge[data-fan="slot7"]     { left: 32%; top: 50%; }
+.launchers > .badge[data-fan="slot6"]     { left: 38%; top: 66%; }
+.launchers > .badge[data-fan="slot5"]     { left: 50%; top: 72%; }
+.launchers > .badge[data-fan="slot4"]     { left: 62%; top: 66%; }
+.launchers > .badge[data-fan="youtube"]   { left: 68%; top: 50%; }
+.launchers > .badge[data-fan="rumble"]    { left: 62%; top: 34%; }
 
 .launchers > .badge::after {
   content: attr(data-name);
@@ -132,20 +132,24 @@ html, body {
   position: absolute;
   pointer-events: none;
 }
-#dailywire { left: 50%; top: 30%; }
-#rumble    { left: 66%; top: 36%; }
-#youtube   { left: 74%; top: 50%; }
-#slot4     { left: 66%; top: 64%; }
-#slot5     { left: 50%; top: 70%; }
-#slot6     { left: 34%; top: 64%; }
-#slot7     { left: 26%; top: 50%; }
-#slot8     { left: 34%; top: 36%; }
+#dailywire { left: 50%; top: 28%; }
+#rumble    { left: 62%; top: 34%; }
+#youtube   { left: 68%; top: 50%; }
+#slot4     { left: 62%; top: 66%; }
+#slot5     { left: 50%; top: 72%; }
+#slot6     { left: 38%; top: 66%; }
+#slot7     { left: 32%; top: 50%; }
+#slot8     { left: 38%; top: 34%; }
 
 .fan .sub {
   opacity: 0;
   pointer-events: none;
   width: 70px;
   height: 70px;
+  left: 0;
+  top: 0;
+  margin-left: -35px;
+  margin-top: -35px;
   border-radius: 50%;
   background-color: #1a1a1a;
   background-image: var(--face);

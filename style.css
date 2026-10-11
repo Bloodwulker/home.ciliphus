@@ -79,7 +79,7 @@ html, body {
   transition: none;
 }
 .launchers > .badge.preroam {
-  animation: rumble 0.12s linear infinite;
+  animation: rumble 0.12s linear infinite; glow 1.2s ease-in-out infinite;
 }
 .launchers.roaming > .badge {
   transition: left 4s ease-in-out, top 4s ease-in-out;

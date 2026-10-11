@@ -36,8 +36,8 @@
     for (let i = bits.length - 1; i >= 0; i--) {
       const b = bits[i];
       b.x += b.vx; b.y += b.vy;
-      b.vy += 0.04; b.vx *= 0.98;
-      b.life -= 0.03; b.rot += b.spin;
+      b.vy += 0.04; b.vx *= 0.995;
+      b.life -= 0.012; b.rot += b.spin;
       if (b.life <= 0) { b.el.remove(); bits.splice(i, 1); continue; }
       b.el.setAttribute("transform", `translate(${b.x} ${b.y}) rotate(${b.rot}) scale(${b.scale * b.life})`);
       b.el.setAttribute("opacity", b.life);

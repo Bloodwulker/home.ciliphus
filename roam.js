@@ -4,8 +4,8 @@
   const badges = [...root.querySelectorAll(":scope > .badge")].map(el => ({
     el,
     x: 50, y: 50,
-    vx: (Math.random() * 0.04 + 0.015) * (Math.random() < 0.5 ? -1 : 1),
-    vy: (Math.random() * 0.03 + 0.01) * (Math.random() < 0.5 ? -1 : 1)
+    vx: (Math.random() * 0.12 + 0.06) * (Math.random() < 0.5 ? -1 : 1),
+vy: (Math.random() * 0.09 + 0.04) * (Math.random() < 0.5 ? -1 : 1)
   }));
   let idle, raf, roaming = false;
 

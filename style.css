@@ -121,6 +121,12 @@ html, body {
 }
 #dailywire { left: 50%; top: 30%; }
 #rumble    { left: 66%; top: 36%; }
+#youtube { left: 74%; top: 50%; }
+#slot4   { left: 66%; top: 64%; }
+#slot5   { left: 50%; top: 70%; }
+#slot6   { left: 34%; top: 64%; }
+#slot7   { left: 26%; top: 50%; }
+#slot8   { left: 34%; top: 36%; }
 
 .fan .sub {
   opacity: 0;

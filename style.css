@@ -46,14 +46,17 @@ html, body { margin: 0; height: 100%; background: #0b1220; }
 .star {
   pointer-events: auto;
   position: absolute;
-  width: 92px; height: 92px;
+  width: 96px; height: 96px;
   border: 0; padding: 0; cursor: pointer;
-  background: center / 70% no-repeat, 
-    radial-gradient(circle at 40% 35%, #f4f4f4, #8a8a8a 55%, #3a3a3a);
+  background:
+    radial-gradient(circle at 35% 30%, #fff 0%, #d0d0d0 18%, #7a7a7a 45%, #2c2c2c 78%);
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-  color: #fff; font: 12px system-ui, sans-serif;
-  text-decoration: none; text-align: center; line-height: 150px;
-  filter: drop-shadow(0 0 6px rgba(255,255,255,0.35));
+  color: #fff;
+  font: 600 11px system-ui, sans-serif;
+  text-decoration: none;
+  text-align: center;
+  line-height: 158px;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.6)) drop-shadow(0 0 8px rgba(255,255,255,0.25));
 }
 .launchers > .star {
   left: 50%;
@@ -76,10 +79,13 @@ html, body { margin: 0; height: 100%; background: #0b1220; }
   opacity: 0;
   pointer-events: none;
   transition: transform 0.35s ease, opacity 0.35s ease;
-  background-size: cover;
-  background-position: center top;
+  background:
+    radial-gradient(circle at 50% 42%, transparent 34%, #1a1a1a 35%),
+    var(--face) center 20% / 130% no-repeat,
+    radial-gradient(circle at 35% 30%, #fff, #888 50%, #222);
+  background-blend-mode: normal;
   color: #fff;
-  text-shadow: 0 1px 3px #000;
+  text-shadow: 0 1px 2px #000, 0 0 6px #000;
 }
 .fan.open { pointer-events: auto; }
 .fan.open .sub { opacity: 1; pointer-events: auto; }

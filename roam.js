@@ -20,9 +20,9 @@
     clearInterval(roam);
     root.classList.remove("roaming");
     badges.forEach(b => { b.style.left = ""; b.style.top = ""; });
-    idle = setTimeout(start, 60000);
+    idle = setTimeout(start, 5000);
   }
   addEventListener("pointermove", stop);
   addEventListener("keydown", stop);
-  idle = setTimeout(start, 60000);
+  idle = setTimeout(start, 5000);
 })();

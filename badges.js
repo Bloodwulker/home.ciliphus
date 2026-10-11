@@ -1,3 +1,7 @@
+document.querySelectorAll("[data-face]").forEach(el => {
+  el.style.setProperty("--face", `url('${BLOB}${el.dataset.face}')`);
+});
+
 let fanTimer;
 window.ciliphusHold = false;
 

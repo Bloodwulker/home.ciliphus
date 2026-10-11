@@ -107,6 +107,14 @@ html, body {
   0 0 56px 14px #0a3161,
   0 0 90px 22px rgba(196, 18, 48, 0.7);
 }
+.launchers > .badge.lit {
+  box-shadow:
+    0 0 0 4px #fff,
+    0 0 0 9px #c41230,
+    0 0 28px 6px #fff,
+    0 0 56px 14px #0a3161,
+    0 0 90px 22px rgba(196, 18, 48, 0.7);
+}
 @keyframes rumble {
   0%   { transform: translate(-50%, -50%) translate(0, 0); }
   25%  { transform: translate(-50%, -50%) translate(-2px, 1px); }

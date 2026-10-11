@@ -89,7 +89,11 @@ html, body {
 }
 .launchers > .badge:hover {
   animation: rumble 0.12s linear infinite;
-  box-shadow: 0 0 0 3px #fff, 0 0 0 6px #222, 0 0 16px rgba(255,255,255,0.45);
+  box-shadow:
+  0 0 0 3px #fff,
+  0 0 0 6px #c41230,
+  0 0 12px #fff,
+  0 0 22px #0a3161;
 }
 @keyframes rumble {
   0%   { transform: translate(-50%, -50%) translate(0, 0); }

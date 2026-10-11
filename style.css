@@ -76,7 +76,7 @@ html, body {
 
 .launchers > .badge {
   transform: translate(-50%, -50%);
-  transition: left 0.7s ease, top 0.7s ease;
+  transition: none;
 }
 .launchers.roaming > .badge {
   transition: left 4s ease-in-out, top 4s ease-in-out;

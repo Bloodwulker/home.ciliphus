@@ -191,13 +191,13 @@ html, body {
 
 /* 3: left, right, bottom */
 .fan.open:has(.sub:nth-child(3):last-child) .sub:nth-child(1) {
-  transform: translate(-150px, -10px);
+  transform: translate(-120px, -20px);
 }
 .fan.open:has(.sub:nth-child(3):last-child) .sub:nth-child(2) {
-  transform: translate(80px, -10px);
+  transform: translate(120px, -20px);
 }
 .fan.open:has(.sub:nth-child(3):last-child) .sub:nth-child(3) {
-  transform: translate(-35px, 100px);
+  transform: translate(0, 110px);
 }
 
 /* 4: top, right, bottom, left */

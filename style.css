@@ -48,7 +48,26 @@ html, body {
   z-index: 0;
   filter: brightness(0.35);
 }
-
+.logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 120px;
+  height: 120px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--face) center / cover no-repeat;
+  pointer-events: none;
+  z-index: 3;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+.logo.preroam {
+  animation: rumble 0.12s linear infinite, glow 1.2s ease-in-out infinite;
+}
+.logo.boom {
+  transform: translate(-50%, -50%) scale(2.2);
+  opacity: 0;
+}
 .launchers {
   position: fixed;
   inset: 0;

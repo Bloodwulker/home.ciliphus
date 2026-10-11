@@ -57,9 +57,9 @@ html, body { margin: 0; height: 100%; background: #0b1220; }
   left: 50%;
   top: 46%;
   transform: translate(-50%, -50%);
-  clip-path: none;
+  clip-path: none !important;
   border-radius: 50%;
-  background: var(--face) center / cover no-repeat;
+  background: var(--face) center / cover no-repeat !important;
   box-shadow: 0 0 0 3px #eee, 0 0 0 6px #333, 0 4px 10px rgba(0,0,0,0.6);
 }
 .launchers > .star::after {

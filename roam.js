@@ -10,7 +10,7 @@
   const ns = "http://www.w3.org/2000/svg";
   const COLORS = ["#c41230", "#ffffff", "#0a3161", "#fff4c2"];
   const bits = [];
-  let idle, raf, roaming = false;
+  let idle, raf, pre, roaming = false;
 
   function spark(px, py) {
     const group = document.querySelector(".sparklers");
@@ -58,39 +58,40 @@
     sparks();
     raf = requestAnimationFrame(frame);
   }
-  function start() {
-    document.querySelectorAll(".fan.open").forEach(f => f.classList.remove("open"));
-    document.querySelectorAll(".badge.lit").forEach(b => b.classList.remove("lit"));
-    badges.forEach(b => b.el.classList.add("preroam"));
-    setTimeout(() => {
-      badges.forEach(b => {
-        b.el.classList.remove("preroam");
-        b.el.style.transition = "none";
-        b.x = parseFloat(getComputedStyle(b.el).left) / innerWidth * 100;
-        b.y = parseFloat(getComputedStyle(b.el).top) / innerHeight * 100;
-      });
-      roaming = true;
-      root.classList.add("roaming");
-      raf = requestAnimationFrame(frame);
-    }, 3000);
-  }
+function start() {
+  document.querySelectorAll(".fan.open").forEach(f => f.classList.remove("open"));
+  document.querySelectorAll(".badge.lit").forEach(b => b.classList.remove("lit"));
+  badges.forEach(b => b.el.classList.add("preroam"));
+  pre = setTimeout(() => {
+    badges.forEach(b => {
+      b.el.classList.remove("preroam");
+      b.el.style.transition = "none";
+      b.x = parseFloat(getComputedStyle(b.el).left) / innerWidth * 100;
+      b.y = parseFloat(getComputedStyle(b.el).top) / innerHeight * 100;
+    });
+    roaming = true;
+    root.classList.add("roaming");
+    raf = requestAnimationFrame(frame);
+  }, 3000);
+}
   function stop() {
-    clearTimeout(idle);
-    if (roaming) {
-      cancelAnimationFrame(raf);
-      roaming = false;
-      root.classList.remove("roaming");
-      badges.forEach(b => {
-        b.el.style.transition = "";
-        b.el.style.left = "";
-        b.el.style.top = "";
-      });
-      bits.forEach(b => b.el.remove());
-      bits.length = 0;
-    }
-    badges.forEach(b => b.el.classList.remove("preroam"));
-    idle = setTimeout(start, 10000);
+  clearTimeout(idle);
+  clearTimeout(pre);
+  if (roaming) {
+    cancelAnimationFrame(raf);
+    roaming = false;
+    root.classList.remove("roaming");
+    badges.forEach(b => {
+      b.el.style.transition = "";
+      b.el.style.left = "";
+      b.el.style.top = "";
+    });
+    bits.forEach(b => b.el.remove());
+    bits.length = 0;
   }
+  badges.forEach(b => b.el.classList.remove("preroam"));
+  idle = setTimeout(start, 10000);
+}
   addEventListener("pointermove", stop);
   addEventListener("keydown", stop);
   idle = setTimeout(start, 10000);

@@ -1,35 +1,41 @@
-html, body { margin: 0; height: 100%; background: #0b1220; }
-  .cursor-trail {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9999;
-    overflow: visible;
-  }
-  .cursor-trail__glow {
-    fill: none;
-    stroke-width: 14;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    filter: blur(6px);
-    opacity: 0.9;
-  }
-  .cursor-trail__line {
-    fill: none;
-    stroke-width: 3;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-  .cursor-trail__spark { fill: #fff; filter: drop-shadow(0 0 6px #fff); }
-  .cursor-trail__ripple {
-    fill: none;
-    stroke: #fff;
-    stroke-width: 2;
-    opacity: 0;
-  }
-  .star { transform-box: fill-box; transform-origin: center; }
+html, body {
+  margin: 0;
+  height: 100%;
+  background: #0b1220;
+}
+
+.cursor-trail {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: visible;
+}
+.cursor-trail__glow {
+  fill: none;
+  stroke-width: 14;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: blur(6px);
+  opacity: 0.9;
+}
+.cursor-trail__line {
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.cursor-trail__spark { fill: #fff; filter: drop-shadow(0 0 6px #fff); }
+.cursor-trail__ripple {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  opacity: 0;
+}
+.star { transform-box: fill-box; transform-origin: center; }
+
 .flag {
   position: fixed;
   top: 0;
@@ -42,41 +48,48 @@ html, body { margin: 0; height: 100%; background: #0b1220; }
   z-index: 0;
   filter: brightness(0.35);
 }
-.launchers { position: fixed; inset: 0; z-index: 2; pointer-events: none; }
-.star {
+
+.launchers {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.badge {
   pointer-events: auto;
   position: absolute;
-  width: 88px; height: 88px;
-  border: 0; padding: 0; cursor: pointer;
-  background: radial-gradient(circle at 35% 30%, #fff 0%, #c8c8c8 22%, #6e6e6e 55%, #2a2a2a 80%);
-  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-  filter: drop-shadow(0 3px 4px rgba(0,0,0,0.65));
+  width: 84px;
+  height: 84px;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 50%;
+  background: var(--face) center / cover no-repeat;
+  box-shadow: 0 0 0 3px #eee, 0 0 0 6px #222, 0 4px 12px rgba(0,0,0,0.65);
   color: transparent;
 }
-.launchers > .star {
+
+.launchers > .badge {
   left: 50%;
   top: 46%;
   transform: translate(-50%, -50%);
-  clip-path: none !important;
-  border-radius: 50%;
-  background: var(--face) center / cover no-repeat !important;
-  box-shadow: 0 0 0 3px #eee, 0 0 0 6px #333, 0 4px 10px rgba(0,0,0,0.6);
 }
-.launchers > .star::after {
+.launchers > .badge::after {
   content: attr(data-name);
   position: absolute;
   left: 50%;
   top: 100%;
   transform: translateX(-50%);
-  margin-top: 8px;
+  margin-top: 10px;
   color: #fff;
   font: 600 13px system-ui, sans-serif;
   text-shadow: 0 1px 3px #000;
   white-space: nowrap;
 }
-.launchers > .star:hover {
+.launchers > .badge:hover {
   animation: rumble 0.12s linear infinite;
-  filter: drop-shadow(0 0 10px #fff) drop-shadow(0 0 16px #c41230);
+  box-shadow: 0 0 0 3px #fff, 0 0 0 6px #222, 0 0 16px rgba(255,255,255,0.45);
 }
 @keyframes rumble {
   0%   { transform: translate(-50%, -50%) translate(0, 0); }
@@ -85,19 +98,23 @@ html, body { margin: 0; height: 100%; background: #0b1220; }
   75%  { transform: translate(-50%, -50%) translate(-1px, -1px); }
   100% { transform: translate(-50%, -50%) translate(0, 0); }
 }
-.fan { position: absolute; left: 50%; top: 46%; pointer-events: none; }
+
+.fan {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  pointer-events: none;
+}
 .fan .sub {
   opacity: 0;
   pointer-events: none;
   width: 70px;
   height: 70px;
-  clip-path: none !important;
   border-radius: 50%;
   background: var(--face) center 18% / cover no-repeat;
-  box-shadow: 0 0 0 3px #eee, 0 0 0 6px #333, 0 4px 10px rgba(0,0,0,0.6);
+  box-shadow: 0 0 0 3px #eee, 0 0 0 6px #222, 0 4px 10px rgba(0,0,0,0.6);
   transition: transform 0.35s ease, opacity 0.35s ease;
 }
-.fan .sub::before { content: none; }
 .fan .sub::after {
   content: attr(data-name);
   position: absolute;

@@ -1,6 +1,7 @@
 (() => {
   const root = document.querySelector(".launchers");
   if (!root) return;
+  const logo = document.querySelector(".logo");
   const badges = [...root.querySelectorAll(":scope > .badge")].map(el => ({
     el,
     x: 50, y: 50,
@@ -51,51 +52,65 @@
       b.el.style.left = b.x + "%";
       b.el.style.top = b.y + "%";
       if (Math.random() < 0.35) {
-  const r = b.el.getBoundingClientRect();
-  const cx = r.left + r.width / 2;
-  const cy = r.top + r.height / 2;
-  const len = Math.hypot(b.vx, b.vy) || 1;
-  spark(cx - (b.vx / len) * 46, cy - (b.vy / len) * 46);
-}
+        const r = b.el.getBoundingClientRect();
+        const cx = r.left + r.width / 2;
+        const cy = r.top + r.height / 2;
+        const len = Math.hypot(b.vx, b.vy) || 1;
+        spark(cx - (b.vx / len) * 46, cy - (b.vy / len) * 46);
+      }
     });
     sparks();
     raf = requestAnimationFrame(frame);
   }
-function start() {
-  if (window.ciliphusHold) { idle = setTimeout(start, 10000); return; }
-  document.querySelectorAll(".fan.open").forEach(f => f.classList.remove("open"));
-  document.querySelectorAll(".badge.lit").forEach(b => b.classList.remove("lit"));
-  badges.forEach(b => b.el.classList.add("preroam"));
-  pre = setTimeout(() => {
-    badges.forEach(b => {
-      b.el.classList.remove("preroam");
-      b.el.style.transition = "none";
-      b.x = parseFloat(getComputedStyle(b.el).left) / innerWidth * 100;
-      b.y = parseFloat(getComputedStyle(b.el).top) / innerHeight * 100;
-    });
-    roaming = true;
-    root.classList.add("roaming");
-    raf = requestAnimationFrame(frame);
-  }, 3000);
-}
-  function stop() {
-  clearTimeout(idle);
-  clearTimeout(pre);
-  if (roaming) {
-    cancelAnimationFrame(raf);
-    roaming = false;
-    root.classList.remove("roaming");
-    badges.forEach(b => {
-      b.el.style.transition = "";
-      b.el.style.left = "";
-      b.el.style.top = "";
-    });
-    bits.forEach(b => b.el.remove());
-    bits.length = 0;
+  function start() {
+    if (window.ciliphusHold) { idle = setTimeout(start, 60000); return; }
+    document.querySelectorAll(".fan.open").forEach(f => f.classList.remove("open"));
+    document.querySelectorAll(".badge.lit").forEach(b => b.classList.remove("lit"));
+    badges.forEach(b => b.el.classList.add("preroam"));
+    if (logo) logo.classList.add("preroam");
+    pre = setTimeout(() => {
+      badges.forEach(b => {
+        b.el.classList.remove("preroam");
+        b.el.style.transition = "none";
+        b.x = parseFloat(getComputedStyle(b.el).left) / innerWidth * 100;
+        b.y = parseFloat(getComputedStyle(b.el).top) / innerHeight * 100;
+      });
+      if (logo) {
+        logo.classList.remove("preroam");
+        const r = logo.getBoundingClientRect();
+        const cx = r.left + r.width / 2;
+        const cy = r.top + r.height / 2;
+        for (let i = 0; i < 18; i++) spark(cx, cy);
+        logo.classList.add("boom");
+        setTimeout(() => { logo.style.visibility = "hidden"; }, 400);
+      }
+      roaming = true;
+      root.classList.add("roaming");
+      raf = requestAnimationFrame(frame);
+    }, 3000);
   }
-  badges.forEach(b => b.el.classList.remove("preroam"));
-  idle = setTimeout(start, 60000);
-}
+  function stop() {
+    clearTimeout(idle);
+    clearTimeout(pre);
+    if (roaming) {
+      cancelAnimationFrame(raf);
+      roaming = false;
+      root.classList.remove("roaming");
+      badges.forEach(b => {
+        b.el.style.transition = "";
+        b.el.style.left = "";
+        b.el.style.top = "";
+      });
+      bits.forEach(b => b.el.remove());
+      bits.length = 0;
+    }
+    badges.forEach(b => b.el.classList.remove("preroam"));
+    if (logo) {
+      logo.classList.remove("preroam", "boom");
+      logo.style.visibility = "";
+    }
+    idle = setTimeout(start, 60000);
+  }
   addEventListener("pointermove", stop);
   addEventListener("keydown", stop);
   idle = setTimeout(start, 60000);

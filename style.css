@@ -76,6 +76,10 @@ html, body {
 
 .launchers > .badge {
   transform: translate(-50%, -50%);
+  transition: left 0.7s ease, top 0.7s ease;
+}
+.launchers.roaming > .badge {
+  transition: left 4s ease-in-out, top 4s ease-in-out;
 }
 .launchers > .badge[data-fan="dailywire"] { left: 50%; top: 28%; }
 .launchers > .badge[data-fan="slot8"]     { left: 38%; top: 34%; }

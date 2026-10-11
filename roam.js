@@ -21,8 +21,11 @@ vy: (Math.random() * 0.09 + 0.04) * (Math.random() < 0.5 ? -1 : 1)
     raf = requestAnimationFrame(frame);
   }
   function start() {
-    document.querySelectorAll(".fan.open").forEach(f => f.classList.remove("open"));
-document.querySelectorAll(".badge.lit").forEach(b => b.classList.remove("lit"));
+  document.querySelectorAll(".fan.open").forEach(f => f.classList.remove("open"));
+  document.querySelectorAll(".badge.lit").forEach(b => b.classList.remove("lit"));
+  badges.forEach(b => b.el.classList.add("preroam"));
+  setTimeout(() => {
+    badges.forEach(b => b.el.classList.remove("preroam"));
     roaming = true;
     root.classList.add("roaming");
     badges.forEach(b => {
@@ -30,7 +33,8 @@ document.querySelectorAll(".badge.lit").forEach(b => b.classList.remove("lit"));
       b.y = parseFloat(getComputedStyle(b.el).top) / innerHeight * 100;
     });
     raf = requestAnimationFrame(frame);
-  }
+  }, 3000);
+}
   function stop() {
     clearTimeout(idle);
     if (roaming) {

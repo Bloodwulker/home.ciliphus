@@ -76,13 +76,13 @@ html, body {
 
 .launchers > .badge {
   transform: translate(-50%, -50%);
-  transition: none;
+  transition: left 0.7s ease, top 0.7s ease;
 }
 .launchers > .badge.preroam {
-  animation: rumble 0.12s linear infinite; glow 1.2s ease-in-out infinite;
+  animation: rumble 0.12s linear infinite, glow 1.2s ease-in-out infinite;
 }
 .launchers.roaming > .badge {
-  transition: left 4s ease-in-out, top 4s ease-in-out;
+  transition: none;
 }
 .launchers > .badge[data-fan="dailywire"] { left: 50%; top: 16%; }
 .launchers > .badge[data-fan="slot8"]     { left: 26%; top: 24%; }

@@ -182,6 +182,9 @@ html, body {
   text-shadow: 0 1px 3px #000;
   white-space: nowrap;
 }
+.fan .sub.scheduled {
+  animation: glow 1.2s ease-in-out infinite;
+}
 .fan.open { pointer-events: auto; }
 .fan.open .sub { opacity: 1; pointer-events: auto; }
 /* 1: directly under */

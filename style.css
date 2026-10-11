@@ -54,20 +54,25 @@ html, body { margin: 0; height: 100%; background: #0b1220; }
   color: transparent;
 }
 .launchers > .star {
-  left: 50%; top: 46%;
+  left: 50%;
+  top: 46%;
   transform: translate(-50%, -50%);
+  clip-path: none;
+  border-radius: 50%;
+  background: var(--face) center / cover no-repeat;
+  box-shadow: 0 0 0 3px #eee, 0 0 0 6px #333, 0 4px 10px rgba(0,0,0,0.6);
 }
 .launchers > .star::after {
-  content: "Daily Wire";
+  content: attr(data-name);
   position: absolute;
-  left: 50%; top: 100%;
+  left: 50%;
+  top: 100%;
   transform: translateX(-50%);
   margin-top: 8px;
   color: #fff;
   font: 600 13px system-ui, sans-serif;
   text-shadow: 0 1px 3px #000;
   white-space: nowrap;
-  clip-path: none;
 }
 .launchers > .star:hover {
   animation: rumble 0.12s linear infinite;

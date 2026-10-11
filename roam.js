@@ -28,7 +28,7 @@
       life: 1,
       rot: Math.random() * 360,
       spin: (Math.random() - 0.5) * 18,
-      scale: 0.4 + Math.random() * 0.6
+      scale: 0.8 + Math.random() * 1.2
     });
     group.appendChild(use);
   }

@@ -98,22 +98,9 @@ html, body {
   text-shadow: 0 1px 3px #000;
   white-space: nowrap;
 }
-.launchers > .badge:hover {
-  animation: rumble 0.12s linear infinite;
-  box-shadow:
-  0 0 0 4px #fff,
-  0 0 0 9px #c41230,
-  0 0 28px 6px #fff,
-  0 0 56px 14px #0a3161,
-  0 0 90px 22px rgba(196, 18, 48, 0.7);
-}
+.launchers > .badge:hover,
 .launchers > .badge.lit {
-  box-shadow:
-    0 0 0 4px #fff,
-    0 0 0 9px #c41230,
-    0 0 28px 6px #fff,
-    0 0 56px 14px #0a3161,
-    0 0 90px 22px rgba(196, 18, 48, 0.7);
+  animation: rumble 0.12s linear infinite, glow 1.2s ease-in-out infinite;
 }
 @keyframes rumble {
   0%   { transform: translate(-50%, -50%) translate(0, 0); }
@@ -122,6 +109,24 @@ html, body {
   75%  { transform: translate(-50%, -50%) translate(-1px, -1px); }
   100% { transform: translate(-50%, -50%) translate(0, 0); }
 }
+@keyframes glow {
+  0%, 100% {
+    box-shadow:
+      0 0 0 4px #fff,
+      0 0 0 9px #c41230,
+      0 0 28px 6px #fff,
+      0 0 56px 14px #0a3161,
+      0 0 90px 22px rgba(196, 18, 48, 0.7);
+  }
+  50% {
+    box-shadow:
+      0 0 0 5px #fff,
+      0 0 0 12px #c41230,
+      0 0 40px 10px #fff,
+      0 0 80px 20px #0a3161,
+      0 0 120px 30px rgba(196, 18, 48, 0.85);
+  }
+}
 
 .fan {
   position: absolute;
@@ -129,12 +134,12 @@ html, body {
 }
 #dailywire { left: 50%; top: 30%; }
 #rumble    { left: 66%; top: 36%; }
-#youtube { left: 74%; top: 50%; }
-#slot4   { left: 66%; top: 64%; }
-#slot5   { left: 50%; top: 70%; }
-#slot6   { left: 34%; top: 64%; }
-#slot7   { left: 26%; top: 50%; }
-#slot8   { left: 34%; top: 36%; }
+#youtube   { left: 74%; top: 50%; }
+#slot4     { left: 66%; top: 64%; }
+#slot5     { left: 50%; top: 70%; }
+#slot6     { left: 34%; top: 64%; }
+#slot7     { left: 26%; top: 50%; }
+#slot8     { left: 34%; top: 36%; }
 
 .fan .sub {
   opacity: 0;
@@ -151,12 +156,7 @@ html, body {
   transition: transform 0.35s ease, opacity 0.35s ease;
 }
 .fan.open .sub:hover {
-  box-shadow:
-  0 0 0 4px #fff,
-  0 0 0 9px #c41230,
-  0 0 28px 6px #fff,
-  0 0 56px 14px #0a3161,
-  0 0 90px 22px rgba(196, 18, 48, 0.7);
+  animation: glow 1.2s ease-in-out infinite;
 }
 .fan .sub::after {
   content: attr(data-name);

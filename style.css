@@ -65,7 +65,11 @@ html, body {
   padding: 0;
   cursor: pointer;
   border-radius: 50%;
-  background: var(--face) center / cover no-repeat;
+  background-color: #1a1a1a;
+  background-image: var(--face);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   box-shadow: 0 0 0 3px #eee, 0 0 0 6px #222, 0 4px 12px rgba(0,0,0,0.65);
   color: transparent;
 }
@@ -73,17 +77,14 @@ html, body {
 .launchers > .badge {
   transform: translate(-50%, -50%);
 }
-.launchers > .badge[data-fan="dailywire"] { left: 50%; top: 26%; }
-.launchers > .badge[data-fan="slot8"]     { left: 30%; top: 34%; }
-.launchers > .badge[data-fan="slot7"]     { left: 20%; top: 50%; }
-.launchers > .badge[data-fan="slot6"]     { left: 30%; top: 66%; }
-.launchers > .badge[data-fan="slot5"]     { left: 50%; top: 74%; }
-.launchers > .badge[data-fan="slot4"]     { left: 70%; top: 66%; }
-.launchers > .badge[data-fan="youtube"]   { left: 80%; top: 50%; }
-.launchers > .badge[data-fan="rumble"]    { left: 70%; top: 34%; }
-
-#dailywire { left: 50%; top: 26%; }
-#rumble    { left: 70%; top: 34%; }
+.launchers > .badge[data-fan="dailywire"] { left: 50%; top: 30%; }
+.launchers > .badge[data-fan="slot8"]     { left: 34%; top: 36%; }
+.launchers > .badge[data-fan="slot7"]     { left: 26%; top: 50%; }
+.launchers > .badge[data-fan="slot6"]     { left: 34%; top: 64%; }
+.launchers > .badge[data-fan="slot5"]     { left: 50%; top: 70%; }
+.launchers > .badge[data-fan="slot4"]     { left: 66%; top: 64%; }
+.launchers > .badge[data-fan="youtube"]   { left: 74%; top: 50%; }
+.launchers > .badge[data-fan="rumble"]    { left: 66%; top: 36%; }
 
 .launchers > .badge::after {
   content: attr(data-name);
@@ -100,11 +101,11 @@ html, body {
 .launchers > .badge:hover {
   animation: rumble 0.12s linear infinite;
   box-shadow:
-  0 0 0 3px #fff,
-  0 0 0 7px #c41230,
-  0 0 18px 4px #fff,
-  0 0 36px 8px #0a3161,
-  0 0 56px 12px rgba(196, 18, 48, 0.65);
+    0 0 0 3px #fff,
+    0 0 0 7px #c41230,
+    0 0 18px 4px #fff,
+    0 0 36px 8px #0a3161,
+    0 0 56px 12px rgba(196, 18, 48, 0.65);
 }
 @keyframes rumble {
   0%   { transform: translate(-50%, -50%) translate(0, 0); }
@@ -116,18 +117,22 @@ html, body {
 
 .fan {
   position: absolute;
-  top: 46%;
   pointer-events: none;
 }
-#dailywire { left: 38%; }
-#rumble { left: 62%; }
+#dailywire { left: 50%; top: 30%; }
+#rumble    { left: 66%; top: 36%; }
+
 .fan .sub {
   opacity: 0;
   pointer-events: none;
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  background: var(--face) center 18% / cover no-repeat;
+  background-color: #1a1a1a;
+  background-image: var(--face);
+  background-position: center 18%;
+  background-size: cover;
+  background-repeat: no-repeat;
   box-shadow: 0 0 0 3px #eee, 0 0 0 6px #222, 0 4px 10px rgba(0,0,0,0.6);
   transition: transform 0.35s ease, opacity 0.35s ease;
 }

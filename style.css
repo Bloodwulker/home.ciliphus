@@ -171,6 +171,7 @@ html, body {
   white-space: nowrap;
 }
 .fan.open { pointer-events: auto; }
+.fan.open .sub { opacity: 1; pointer-events: auto; }
 /* 1: directly under */
 .fan.open:has(.sub:nth-child(1):last-child) .sub:nth-child(1) {
   transform: translate(0, 110px);

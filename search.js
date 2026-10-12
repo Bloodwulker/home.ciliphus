@@ -1,8 +1,7 @@
 (() => {
-  const box = document.querySelector(".gsearch");
-  const input = box.querySelector("input");
   const ns = "http://www.w3.org/2000/svg";
   const COLORS = ["#c41230", "#ffffff", "#0a3161", "#fff4c2"];
+  let idleBox;
 
   function burst() {
     const group = document.querySelector(".sparklers");
@@ -32,40 +31,49 @@
       }
     });
   }
- function openBox(which) {
-  document.querySelectorAll(".gsearch").forEach(b => {
-    b.classList.remove("show");
-    b.hidden = true;
-  });
-  const box = document.querySelector(which);
-  const input = box.querySelector("input");
-  burst();
-  document.body.classList.add("searching");
-  box.hidden = false;
-  requestAnimationFrame(() => box.classList.add("show"));
-  setTimeout(() => input.focus(), 50);
-}
-function close() {
-  document.querySelectorAll(".gsearch").forEach(b => b.classList.remove("show"));
-  document.body.classList.remove("searching");
-  setTimeout(() => {
+  function openBox(which) {
     document.querySelectorAll(".gsearch").forEach(b => {
+      b.classList.remove("show");
       b.hidden = true;
-      b.querySelector("input").value = "";
     });
-  }, 350);
-}
-addEventListener("keydown", (e) => {
-  const typing = document.activeElement.tagName === "INPUT";
-  if (typing) {
-    if (e.key === "Escape") close();
-    return;
+    const box = document.querySelector(which);
+    const input = box.querySelector("input");
+    burst();
+    document.body.classList.add("searching");
+    box.hidden = false;
+    requestAnimationFrame(() => box.classList.add("show"));
+    setTimeout(() => input.focus(), 50);
+    clearTimeout(idleBox);
+    idleBox = setTimeout(close, 10000);
   }
-  if (e.key === "g" && !e.metaKey && !e.ctrlKey) { e.preventDefault(); openBox(".gsearch:not(.ysearch)"); }
-  if (e.key === "y" && !e.metaKey && !e.ctrlKey) { e.preventDefault(); openBox(".ysearch"); }
-  if (e.key === "Escape") close();
-});
-document.querySelectorAll(".gsearch form").forEach(f => {
-  f.addEventListener("submit", () => setTimeout(close, 100));
-});
+  function close() {
+    clearTimeout(idleBox);
+    document.querySelectorAll(".gsearch").forEach(b => b.classList.remove("show"));
+    document.body.classList.remove("searching");
+    setTimeout(() => {
+      document.querySelectorAll(".gsearch").forEach(b => {
+        b.hidden = true;
+        b.querySelector("input").value = "";
+      });
+    }, 350);
+  }
+  addEventListener("keydown", (e) => {
+    const typing = document.activeElement.tagName === "INPUT";
+    if (typing) {
+      if (e.key === "Escape") close();
+      return;
+    }
+    if (e.key === "g" && !e.metaKey && !e.ctrlKey) { e.preventDefault(); openBox(".gsearch:not(.ysearch)"); }
+    if (e.key === "y" && !e.metaKey && !e.ctrlKey) { e.preventDefault(); openBox(".ysearch"); }
+    if (e.key === "Escape") close();
+  });
+  document.querySelectorAll(".gsearch form").forEach(f => {
+    f.addEventListener("submit", () => setTimeout(close, 100));
+  });
+  document.querySelectorAll(".gsearch input").forEach(inp => {
+    inp.addEventListener("input", () => {
+      clearTimeout(idleBox);
+      if (!inp.value.trim()) idleBox = setTimeout(close, 10000);
+    });
+  });
 })();

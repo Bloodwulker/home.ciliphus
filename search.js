@@ -68,3 +68,4 @@ addEventListener("keydown", (e) => {
 document.querySelectorAll(".gsearch form").forEach(f => {
   f.addEventListener("submit", () => setTimeout(close, 100));
 });
+})();

@@ -281,3 +281,31 @@ html, body {
 .fan.open:has(.sub:nth-child(5):last-child) .sub:nth-child(5) {
   transform: translate(-114px, 37px);
 }
+.gsearch {
+  position: fixed;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.gsearch.show { opacity: 1; }
+.gsearch input {
+  width: 420px;
+  padding: 14px 18px;
+  border: 0;
+  border-radius: 28px;
+  font: 16px system-ui, sans-serif;
+  outline: none;
+  box-shadow: 0 0 0 3px #fff, 0 0 24px rgba(0,0,0,0.5);
+}
+body.searching .launchers > .badge,
+body.searching .fan .sub,
+body.searching .logo {
+  animation: none;
+  transform: translate(-50%, -50%) scale(2.4);
+  opacity: 0;
+  transition: transform 0.45s ease, opacity 0.45s ease;
+  pointer-events: none;
+}

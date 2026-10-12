@@ -30,6 +30,7 @@ function applySchedule() {
   window.ciliphusHold = !!hit;
   if (!hit) {
     document.querySelectorAll(".sub.scheduled").forEach(s => s.classList.remove("scheduled"));
+    document.querySelectorAll(".fan.open").forEach(f => f.classList.remove("open"));
     return;
   }
   const fan = document.getElementById(hit.fan);

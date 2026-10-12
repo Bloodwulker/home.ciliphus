@@ -25,8 +25,8 @@ function inWindow(now, s) {
 }
 
 function applySchedule() {
-  if (hit && window.ciliphusStop) window.ciliphusStop();
   const hit = SCHEDULE.find(s => inWindow(new Date(), s));
+  if (hit && window.ciliphusStop) window.ciliphusStop();
   window.ciliphusHold = !!hit;
   if (!hit) {
     document.querySelectorAll(".sub.scheduled").forEach(s => s.classList.remove("scheduled"));

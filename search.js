@@ -72,8 +72,8 @@
   });
   document.querySelectorAll(".gsearch input").forEach(inp => {
     inp.addEventListener("input", () => {
-      clearTimeout(idleBox);
-      if (!inp.value.trim()) idleBox = setTimeout(close, 10000);
-    });
+  clearTimeout(idleBox);
+  idleBox = setTimeout(close, 10000);
+});
   });
 })();

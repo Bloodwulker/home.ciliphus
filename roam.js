@@ -153,4 +153,5 @@
   addEventListener("pointermove", stop);
   addEventListener("keydown", stop);
   idle = setTimeout(start, 60000);
+  window.ciliphusStop = stop;
 })();

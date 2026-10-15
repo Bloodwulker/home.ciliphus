@@ -108,7 +108,7 @@ html, body {
 .launchers > .badge[data-fan="slot8"]     { left: 26%; top: 24%; }
 .launchers > .badge[data-fan="slot7"]     { left: 14%; top: 50%; }
 .launchers > .badge[data-fan="slot6"]     { left: 26%; top: 76%; }
-.launchers > .badge[data-fan="slot5"]     { left: 50%; top: 86%; }
+.launchers > .badge[data-fan="grokx"]     { left: 50%; top: 86%; }
 .launchers > .badge[data-fan="media"]     { left: 74%; top: 76%; }
 .launchers > .badge[data-fan="youtube"]   { left: 86%; top: 50%; }
 .launchers > .badge[data-fan="rumble"]    { left: 74%; top: 24%; }
@@ -163,7 +163,7 @@ html, body {
 #rumble    { left: 74%; top: 24%; }
 #youtube   { left: 86%; top: 50%; }
 #media     { left: 74%; top: 76%; }
-#slot5     { left: 50%; top: 86%; }
+#grokx     { left: 50%; top: 86%; }
 #slot6     { left: 26%; top: 76%; }
 #slot7     { left: 14%; top: 50%; }
 #slot8     { left: 26%; top: 24%; }

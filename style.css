@@ -104,14 +104,14 @@ html, body {
   transition: none;
   animation: glow 1.2s ease-in-out infinite;
 }
-.launchers > .badge[data-fan="dailywire"] { left: 50%; top: 16%; }
-.launchers > .badge[data-fan="slot8"]     { left: 26%; top: 24%; }
-.launchers > .badge[data-fan="slot7"]     { left: 14%; top: 50%; }
-.launchers > .badge[data-fan="slot6"]     { left: 26%; top: 76%; }
-.launchers > .badge[data-fan="grokx"]     { left: 50%; top: 86%; }
-.launchers > .badge[data-fan="media"]     { left: 74%; top: 76%; }
-.launchers > .badge[data-fan="youtube"]   { left: 86%; top: 50%; }
-.launchers > .badge[data-fan="rumble"]    { left: 74%; top: 24%; }
+.launchers > .badge[data-fan="dailywire"] { left: 50%; top: 22%; }
+.launchers > .badge[data-fan="slot8"]     { left: 30%; top: 28%; }
+.launchers > .badge[data-fan="slot7"]     { left: 18%; top: 50%; }
+.launchers > .badge[data-fan="slot6"]     { left: 30%; top: 72%; }
+.launchers > .badge[data-fan="grokx"]     { left: 50%; top: 78%; }
+.launchers > .badge[data-fan="media"]     { left: 70%; top: 72%; }
+.launchers > .badge[data-fan="youtube"]   { left: 82%; top: 50%; }
+.launchers > .badge[data-fan="rumble"]    { left: 70%; top: 28%; }
 
 .launchers > .badge::after {
   content: attr(data-name);
@@ -159,14 +159,14 @@ html, body {
   position: absolute;
   pointer-events: none;
 }
-#dailywire { left: 50%; top: 16%; }
-#rumble    { left: 74%; top: 24%; }
-#youtube   { left: 86%; top: 50%; }
-#media     { left: 74%; top: 76%; }
-#grokx     { left: 50%; top: 86%; }
-#slot6     { left: 26%; top: 76%; }
-#slot7     { left: 14%; top: 50%; }
-#slot8     { left: 26%; top: 24%; }
+#dailywire { left: 50%; top: 22%; }
+#rumble    { left: 70%; top: 28%; }
+#youtube   { left: 82%; top: 50%; }
+#media     { left: 70%; top: 72%; }
+#grokx     { left: 50%; top: 78%; }
+#slot6     { left: 30%; top: 72%; }
+#slot7     { left: 18%; top: 50%; }
+#slot8     { left: 30%; top: 28%; }
 
 .fan .sub {
   opacity: 0;

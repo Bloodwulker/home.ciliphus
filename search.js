@@ -47,16 +47,14 @@
     idleBox = setTimeout(close, 10000);
   }
   function close() {
-    clearTimeout(idleBox);
-    document.querySelectorAll(".gsearch").forEach(b => b.classList.remove("show"));
-    document.body.classList.remove("searching");
-    setTimeout(() => {
-      document.querySelectorAll(".gsearch").forEach(b => {
-        b.hidden = true;
-        b.querySelector("input").value = "";
-      });
-    }, 350);
-  }
+  clearTimeout(idleBox);
+  document.querySelectorAll(".gsearch input").forEach(inp => inp.value = "");
+  document.querySelectorAll(".gsearch").forEach(b => b.classList.remove("show"));
+  document.body.classList.remove("searching");
+  setTimeout(() => {
+    document.querySelectorAll(".gsearch").forEach(b => b.hidden = true);
+  }, 350);
+}
   addEventListener("keydown", (e) => {
     const typing = document.activeElement.tagName === "INPUT";
     if (typing) {

@@ -309,8 +309,29 @@ html, body {
   z-index: 20;
   opacity: 0;
   transition: opacity 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
 }
 .gsearch.show { opacity: 1; }
+.gsearch::before {
+  content: "";
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: center / cover no-repeat;
+  box-shadow: 0 0 0 3px #eee, 0 0 0 6px #222;
+}
+.gsearch.google::before {
+  background-image: url("https://ciliphushome.blob.core.windows.net/$web/google.png");
+}
+.gsearch.youtube::before {
+  background-image: url("https://ciliphushome.blob.core.windows.net/$web/youtube.png");
+}
+.gsearch.grok::before {
+  background-image: url("https://ciliphushome.blob.core.windows.net/$web/grok.png");
+}
 .gsearch input {
   width: 420px;
   padding: 14px 18px;
@@ -318,6 +339,7 @@ html, body {
   border-radius: 28px;
   font: 16px system-ui, sans-serif;
   outline: none;
+  background: #fff;
   box-shadow: 0 0 0 3px #fff, 0 0 24px rgba(0,0,0,0.5);
 }
 body.searching .launchers > .badge,
@@ -328,16 +350,4 @@ body.searching .logo {
   opacity: 0;
   transition: transform 0.45s ease, opacity 0.45s ease;
   pointer-events: none;
-}
-.gsearch.google input {
-  background: #fff url("https://ciliphushome.blob.core.windows.net/$web/google.png") 10px center / 32px no-repeat;
-  padding-left: 48px;
-}
-.gsearch.youtube input {
-  background: #fff url("https://ciliphushome.blob.core.windows.net/$web/youtube.png") 10px center / 32px no-repeat;
-  padding-left: 48px;
-}
-.gsearch.grok input {
-  background: #fff url("https://ciliphushome.blob.core.windows.net/$web/grok.png") 10px center / 32px no-repeat;
-  padding-left: 48px;
 }

@@ -339,6 +339,9 @@ html, body {
   from { transform: translateX(-120vw) rotate(-30deg) scale(0.5); opacity: 0; }
   to { transform: translateX(0) rotate(0deg) scale(1); opacity: 1; }
 }
+.gsearch.rumble::before {
+  animation: rumble 0.12s linear infinite;
+}
 .gsearch.google::before {
   background-image: url("https://ciliphushome.blob.core.windows.net/$web/google.png");
 }

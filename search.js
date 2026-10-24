@@ -33,21 +33,25 @@
   }
   function openBox(which) {
     document.querySelectorAll(".gsearch").forEach(b => {
-      b.classList.remove("show");
-      b.hidden = true;
-    });
-    const box = document.querySelector(which);
-    const input = box.querySelector("input");
-    burst();
-    document.body.classList.add("searching");
-    box.hidden = false;
-    requestAnimationFrame(() => box.classList.add("show"));
-    setTimeout(() => input.focus(), 50);
+  b.classList.remove("show", "boom");
+  b.hidden = true;
+  b.querySelector("input").value = "";
+});
+const box = document.querySelector(which);
+const input = box.querySelector("input");
+burst();
+document.body.classList.add("searching");
+box.hidden = false;
+requestAnimationFrame(() => {
+  requestAnimationFrame(() => box.classList.add("show"));
+});
+setTimeout(() => input.focus(), 50);
     clearTimeout(idleBox);
     idleBox = setTimeout(close, 10000);
   }
   function close() {
   clearTimeout(idleBox);
+    document.querySelectorAll(".gsearch input").forEach(inp => inp.blur());
     const open = document.querySelector(".gsearch.show");
 if (open) {
   const r = open.getBoundingClientRect();

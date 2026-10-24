@@ -323,6 +323,11 @@ html, body {
   background: center / cover no-repeat;
   box-shadow: 0 0 0 3px #eee, 0 0 0 6px #222;
 }
+.gsearch.boom::before {
+  transform: scale(3.5);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
 .gsearch::before {
   transform: translateY(-40px) scale(0.6);
   opacity: 0;

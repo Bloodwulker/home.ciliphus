@@ -87,11 +87,13 @@
       open.classList.add("boom");
     }
     document.querySelectorAll(".gsearch input").forEach(inp => inp.value = "");
-    document.querySelectorAll(".gsearch").forEach(b => b.classList.remove("show"));
     document.body.classList.remove("searching");
     setTimeout(() => {
-      document.querySelectorAll(".gsearch").forEach(b => b.hidden = true);
-    }, 350);
+  document.querySelectorAll(".gsearch").forEach(b => {
+    b.classList.remove("show", "boom", "rumble");
+    b.hidden = true;
+  });
+}, 500);
   }
   addEventListener("keydown", (e) => {
     const typing = document.activeElement.tagName === "INPUT";

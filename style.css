@@ -339,8 +339,15 @@ html, body {
   from { transform: translateX(-120vw) rotate(-30deg) scale(0.5); opacity: 0; }
   to { transform: translateX(0) rotate(0deg) scale(1); opacity: 1; }
 }
-.gsearch.rumble::before {
-  animation: rumble 0.12s linear infinite;
+.gsearch.show.rumble::before {
+  animation: searchrumble 0.1s linear infinite;
+}
+@keyframes searchrumble {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-3px, 2px); }
+  50%  { transform: translate(3px, -2px); }
+  75%  { transform: translate(-2px, -2px); }
+  100% { transform: translate(0, 0); }
 }
 .gsearch.google::before {
   background-image: url("https://ciliphushome.blob.core.windows.net/$web/google.png");

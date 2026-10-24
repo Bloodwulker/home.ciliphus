@@ -47,7 +47,6 @@ function applySchedule() {
 
 document.querySelectorAll(".badge[data-fan]").forEach(btn => {
   btn.addEventListener("click", () => {
-    if (window.ciliphusHold) return;
     const fan = document.getElementById(btn.dataset.fan);
     const wasOpen = fan.classList.contains("open");
     closeAll();
@@ -55,15 +54,19 @@ document.querySelectorAll(".badge[data-fan]").forEach(btn => {
     if (!wasOpen) {
       fan.classList.add("open");
       btn.classList.add("lit");
-      fanTimer = setTimeout(closeAll, 5000);
+      if (window.ciliphusHold) {
+        fanTimer = setTimeout(applySchedule, 10000);
+      } else {
+        fanTimer = setTimeout(closeAll, 5000);
+      }
     }
   });
 });
 document.addEventListener("click", (e) => {
-  if (window.ciliphusHold) return;
   if (!e.target.closest(".launchers")) {
     clearTimeout(fanTimer);
-    closeAll();
+    if (window.ciliphusHold) applySchedule();
+    else closeAll();
   }
 });
 

@@ -63,8 +63,9 @@
       if (e.key === "Escape") close();
       return;
     }
-    if (e.key === "g" && !e.metaKey && !e.ctrlKey) { e.preventDefault(); openBox(".gsearch:not(.ysearch)"); }
+    if (e.key === "g" && !e.metaKey && !e.ctrlKey) { e.preventDefault(); openBox(".gsearch:not(.ysearch):not(.ksearch)"); }
     if (e.key === "y" && !e.metaKey && !e.ctrlKey) { e.preventDefault(); openBox(".ysearch"); }
+    if (e.key === "k" && !e.metaKey && !e.ctrlKey) { e.preventDefault(); openBox(".ksearch"); }
     if (e.key === "Escape") close();
   });
   document.querySelectorAll(".gsearch form").forEach(f => {
@@ -72,8 +73,8 @@
   });
   document.querySelectorAll(".gsearch input").forEach(inp => {
     inp.addEventListener("input", () => {
-  clearTimeout(idleBox);
-  idleBox = setTimeout(close, 10000);
-});
+      clearTimeout(idleBox);
+      idleBox = setTimeout(close, 10000);
+    });
   });
 })();

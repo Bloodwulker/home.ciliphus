@@ -330,14 +330,14 @@ body.searching .logo {
   pointer-events: none;
 }
 .gsearch.google input {
-  background: #fff url("https://ciliphushome.blob.core.windows.net/$web/google.png") 12px center / 20px no-repeat;
-  padding-left: 40px;
+  background: #fff url("https://ciliphushome.blob.core.windows.net/$web/google.png") 10px center / 32px no-repeat;
+  padding-left: 48px;
 }
 .gsearch.youtube input {
-  background: #fff url("https://ciliphushome.blob.core.windows.net/$web/youtube.png") 12px center / 20px no-repeat;
-  padding-left: 40px;
+  background: #fff url("https://ciliphushome.blob.core.windows.net/$web/youtube.png") 10px center / 32px no-repeat;
+  padding-left: 48px;
 }
 .gsearch.grok input {
-  background: #fff url("https://ciliphushome.blob.core.windows.net/$web/grok.png") 12px center / 20px no-repeat;
-  padding-left: 40px;
+  background: #fff url("https://ciliphushome.blob.core.windows.net/$web/grok.png") 10px center / 32px no-repeat;
+  padding-left: 48px;
 }

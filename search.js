@@ -42,9 +42,12 @@
   burst();
   document.body.classList.add("searching");
   box.hidden = false;
-  box.classList.remove("show");
-  void box.offsetWidth;
-  box.classList.add("show");
+box.classList.remove("show", "boom");
+box.style.transition = "none";
+void box.offsetWidth;
+box.style.transition = "";
+void box.offsetWidth;
+box.classList.add("show");
   setTimeout(() => input.focus(), 50);
   clearTimeout(idleBox);
   idleBox = setTimeout(close, 10000);

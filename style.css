@@ -329,4 +329,15 @@ body.searching .logo {
   transition: transform 0.45s ease, opacity 0.45s ease;
   pointer-events: none;
 }
-
+.gsearch.google input {
+  background: #fff url("https://ciliphushome.blob.core.windows.net/$web/google.png") 12px center / 20px no-repeat;
+  padding-left: 40px;
+}
+.gsearch.youtube input {
+  background: #fff url("https://ciliphushome.blob.core.windows.net/$web/youtube.png") 12px center / 20px no-repeat;
+  padding-left: 40px;
+}
+.gsearch.grok input {
+  background: #fff url("https://ciliphushome.blob.core.windows.net/$web/grok.png") 12px center / 20px no-repeat;
+  padding-left: 40px;
+}

@@ -32,66 +32,67 @@
     });
   }
   function openBox(which) {
-  document.querySelectorAll(".gsearch").forEach(b => {
-    b.classList.remove("show", "boom");
-    b.hidden = true;
-    b.querySelector("input").value = "";
-  });
-  const box = document.querySelector(which);
-  const input = box.querySelector("input");
-  burst();
-  document.body.classList.add("searching");
-  box.hidden = false;
-box.classList.remove("show", "boom");
-void box.offsetWidth;
-box.classList.add("show");
-  setTimeout(() => input.focus(), 50);
-  clearTimeout(idleBox);
- idleBox = setTimeout(() => {
-  const box = document.querySelector(".gsearch.show");
-  if (box) box.classList.add("rumble");
-  setTimeout(close, 1200);
-}, 10000);
+    document.querySelectorAll(".gsearch").forEach(b => {
+      b.classList.remove("show", "boom");
+      b.hidden = true;
+      b.querySelector("input").value = "";
+    });
+    const box = document.querySelector(which);
+    const input = box.querySelector("input");
+    burst();
+    document.body.classList.add("searching");
+    box.hidden = false;
+    box.classList.remove("show", "boom");
+    void box.offsetWidth;
+    box.classList.add("show");
+    setTimeout(() => input.focus(), 50);
+    clearTimeout(idleBox);
+    idleBox = setTimeout(() => {
+      const open = document.querySelector(".gsearch.show");
+      if (open) open.classList.add("rumble");
+      setTimeout(close, 1200);
+    }, 10000);
+  }
   function close() {
-  clearTimeout(idleBox);
+    clearTimeout(idleBox);
     document.querySelectorAll(".gsearch").forEach(b => b.classList.remove("rumble"));
     document.querySelectorAll(".gsearch input").forEach(inp => inp.blur());
     const open = document.querySelector(".gsearch.show");
-if (open) {
-  const r = open.getBoundingClientRect();
-  const cx = r.left + r.width / 2;
-  const cy = r.top + 120;
-  const group = document.querySelector(".sparklers");
-  if (group) {
-    for (let i = 0; i < 60; i++) {
-      const use = document.createElementNS(ns, "use");
-      use.setAttribute("href", "#sparkler-star");
-      use.setAttribute("fill", COLORS[(Math.random() * COLORS.length) | 0]);
-      const ang = Math.random() * Math.PI * 2;
-      const spd = 3 + Math.random() * 8;
-      let x = cx, y = cy, life = 1;
-      group.appendChild(use);
-      const tick = () => {
-        x += Math.cos(ang) * spd;
-        y += Math.sin(ang) * spd;
-        life -= 0.018;
-        if (life <= 0) { use.remove(); return; }
-        use.setAttribute("transform", `translate(${x} ${y}) scale(${life * 2.5})`);
-        use.setAttribute("opacity", life);
-        requestAnimationFrame(tick);
-      };
-      tick();
+    if (open) {
+      const r = open.getBoundingClientRect();
+      const cx = r.left + r.width / 2;
+      const cy = r.top + 120;
+      const group = document.querySelector(".sparklers");
+      if (group) {
+        for (let i = 0; i < 60; i++) {
+          const use = document.createElementNS(ns, "use");
+          use.setAttribute("href", "#sparkler-star");
+          use.setAttribute("fill", COLORS[(Math.random() * COLORS.length) | 0]);
+          const ang = Math.random() * Math.PI * 2;
+          const spd = 3 + Math.random() * 8;
+          let x = cx, y = cy, life = 1;
+          group.appendChild(use);
+          const tick = () => {
+            x += Math.cos(ang) * spd;
+            y += Math.sin(ang) * spd;
+            life -= 0.018;
+            if (life <= 0) { use.remove(); return; }
+            use.setAttribute("transform", `translate(${x} ${y}) scale(${life * 2.5})`);
+            use.setAttribute("opacity", life);
+            requestAnimationFrame(tick);
+          };
+          tick();
+        }
+      }
+      open.classList.add("boom");
     }
+    document.querySelectorAll(".gsearch input").forEach(inp => inp.value = "");
+    document.querySelectorAll(".gsearch").forEach(b => b.classList.remove("show"));
+    document.body.classList.remove("searching");
+    setTimeout(() => {
+      document.querySelectorAll(".gsearch").forEach(b => b.hidden = true);
+    }, 350);
   }
-  open.classList.add("boom");
-}
-  document.querySelectorAll(".gsearch input").forEach(inp => inp.value = "");
-  document.querySelectorAll(".gsearch").forEach(b => b.classList.remove("show"));
-  document.body.classList.remove("searching");
-  setTimeout(() => {
-    document.querySelectorAll(".gsearch").forEach(b => b.hidden = true);
-  }, 350);
-}
   addEventListener("keydown", (e) => {
     const typing = document.activeElement.tagName === "INPUT";
     if (typing) {

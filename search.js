@@ -47,10 +47,14 @@ void box.offsetWidth;
 box.classList.add("show");
   setTimeout(() => input.focus(), 50);
   clearTimeout(idleBox);
-  idleBox = setTimeout(close, 10000);
-}
+ idleBox = setTimeout(() => {
+  const box = document.querySelector(".gsearch.show");
+  if (box) box.classList.add("rumble");
+  setTimeout(close, 1200);
+}, 10000);
   function close() {
   clearTimeout(idleBox);
+    document.querySelectorAll(".gsearch").forEach(b => b.classList.remove("rumble"));
     document.querySelectorAll(".gsearch input").forEach(inp => inp.blur());
     const open = document.querySelector(".gsearch.show");
 if (open) {

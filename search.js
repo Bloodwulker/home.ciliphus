@@ -63,9 +63,9 @@
       if (e.key === "Escape") close();
       return;
     }
-    if (e.key === "g" && !e.metaKey && !e.ctrlKey) { e.preventDefault(); openBox(".gsearch:not(.ysearch):not(.ksearch)"); }
-    if (e.key === "y" && !e.metaKey && !e.ctrlKey) { e.preventDefault(); openBox(".ysearch"); }
-    if (e.key === "k" && !e.metaKey && !e.ctrlKey) { e.preventDefault(); openBox(".ksearch"); }
+    if (e.key === "g" && !e.metaKey && !e.ctrlKey) { e.preventDefault(); openBox(".google"); }
+    if (e.key === "y" && !e.metaKey && !e.ctrlKey) { e.preventDefault(); openBox(".youtube"); }
+    if (e.key === "k" && !e.metaKey && !e.ctrlKey) { e.preventDefault(); openBox(".grok"); }
     if (e.key === "Escape") close();
   });
   document.querySelectorAll(".gsearch form").forEach(f => {

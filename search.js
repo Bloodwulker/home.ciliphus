@@ -48,53 +48,56 @@
     setTimeout(() => input.focus(), 50);
     clearTimeout(idleBox);
     idleBox = setTimeout(() => {
-      const open = document.querySelector(".gsearch.show");
-      if (open) open.classList.add("rumble");
-      setTimeout(close, 1200);
-    }, 10000);
+  const open = document.querySelector(".gsearch.show");
+  if (open) open.classList.add("rumble");
+  close();
+}, 10000);
   }
-  function close() {
-    clearTimeout(idleBox);
-    document.querySelectorAll(".gsearch").forEach(b => b.classList.remove("rumble"));
-    document.querySelectorAll(".gsearch input").forEach(inp => inp.blur());
-    const open = document.querySelector(".gsearch.show");
-    if (open) {
-      const r = open.getBoundingClientRect();
-      const cx = r.left + r.width / 2;
-      const cy = r.top + 120;
-      const group = document.querySelector(".sparklers");
-      if (group) {
-        for (let i = 0; i < 60; i++) {
-          const use = document.createElementNS(ns, "use");
-          use.setAttribute("href", "#sparkler-star");
-          use.setAttribute("fill", COLORS[(Math.random() * COLORS.length) | 0]);
-          const ang = Math.random() * Math.PI * 2;
-          const spd = 3 + Math.random() * 8;
-          let x = cx, y = cy, life = 1;
-          group.appendChild(use);
-          const tick = () => {
-            x += Math.cos(ang) * spd;
-            y += Math.sin(ang) * spd;
-            life -= 0.018;
-            if (life <= 0) { use.remove(); return; }
-            use.setAttribute("transform", `translate(${x} ${y}) scale(${life * 2.5})`);
-            use.setAttribute("opacity", life);
-            requestAnimationFrame(tick);
-          };
-          tick();
-        }
-      }
-      open.classList.add("boom");
+  function close(skipRumble) {
+  clearTimeout(idleBox);
+  const open = document.querySelector(".gsearch.show");
+  if (!open) return;
+  document.querySelectorAll(".gsearch input").forEach(inp => { inp.blur(); inp.value = ""; });
+  if (!skipRumble && open.classList.contains("rumble")) {
+    setTimeout(() => finish(open), 1200);
+    return;
+  }
+  finish(open);
+}
+function finish(open) {
+  open.classList.remove("rumble");
+  const r = open.getBoundingClientRect();
+  const cx = r.left + r.width / 2;
+  const cy = r.top + 120;
+  const group = document.querySelector(".sparklers");
+  if (group) {
+    for (let i = 0; i < 60; i++) {
+      const use = document.createElementNS(ns, "use");
+      use.setAttribute("href", "#sparkler-star");
+      use.setAttribute("fill", COLORS[(Math.random() * COLORS.length) | 0]);
+      const ang = Math.random() * Math.PI * 2;
+      const spd = 3 + Math.random() * 8;
+      let x = cx, y = cy, life = 1;
+      group.appendChild(use);
+      const tick = () => {
+        x += Math.cos(ang) * spd;
+        y += Math.sin(ang) * spd;
+        life -= 0.018;
+        if (life <= 0) { use.remove(); return; }
+        use.setAttribute("transform", `translate(${x} ${y}) scale(${life * 2.5})`);
+        use.setAttribute("opacity", life);
+        requestAnimationFrame(tick);
+      };
+      tick();
     }
-    document.querySelectorAll(".gsearch input").forEach(inp => inp.value = "");
-    document.body.classList.remove("searching");
-    setTimeout(() => {
-  document.querySelectorAll(".gsearch").forEach(b => {
-    b.classList.remove("show", "boom", "rumble");
-    b.hidden = true;
-  });
-}, 500);
   }
+  open.classList.add("boom");
+  setTimeout(() => {
+    open.classList.remove("show", "boom");
+    open.hidden = true;
+    document.body.classList.remove("searching");
+  }, 500);
+}
   addEventListener("keydown", (e) => {
     const typing = document.activeElement.tagName === "INPUT";
     if (typing) {

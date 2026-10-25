@@ -53,22 +53,23 @@
   close();
 }, 10000);
   }
-  function close(skipRumble) {
+  function close(fromEscape) {
   clearTimeout(idleBox);
   const open = document.querySelector(".gsearch.show");
   if (!open) return;
   document.querySelectorAll(".gsearch input").forEach(inp => { inp.blur(); inp.value = ""; });
-  if (!skipRumble && open.classList.contains("rumble")) {
-    setTimeout(() => finish(open), 1200);
-    return;
+  if (!fromEscape) {
+    open.classList.add("rumble");
+    setTimeout(() => explode(open), 1200);
+  } else {
+    explode(open);
   }
-  finish(open);
 }
-function finish(open) {
+function explode(open) {
   open.classList.remove("rumble");
   const r = open.getBoundingClientRect();
   const cx = r.left + r.width / 2;
-  const cy = r.top + 120;
+  const cy = r.top + 80;
   const group = document.querySelector(".sparklers");
   if (group) {
     for (let i = 0; i < 60; i++) {
@@ -93,29 +94,29 @@ function finish(open) {
   }
   open.classList.add("boom");
   setTimeout(() => {
-    open.classList.remove("show", "boom");
     open.hidden = true;
+    open.classList.remove("show", "boom", "rumble");
     document.body.classList.remove("searching");
-  }, 500);
+  }, 400);
 }
-  addEventListener("keydown", (e) => {
-    const typing = document.activeElement.tagName === "INPUT";
-    if (typing) {
-      if (e.key === "Escape") close();
-      return;
-    }
-    if (e.key === "g" && !e.metaKey && !e.ctrlKey) { e.preventDefault(); openBox(".google"); }
-    if (e.key === "y" && !e.metaKey && !e.ctrlKey) { e.preventDefault(); openBox(".youtube"); }
-    if (e.key === "k" && !e.metaKey && !e.ctrlKey) { e.preventDefault(); openBox(".grok"); }
-    if (e.key === "Escape") close();
+addEventListener("keydown", (e) => {
+  const typing = document.activeElement.tagName === "INPUT";
+  if (typing) {
+    if (e.key === "Escape") close(true);
+    return;
+  }
+  if (e.key === "g" && !e.metaKey && !e.ctrlKey) { e.preventDefault(); openBox(".google"); }
+  if (e.key === "y" && !e.metaKey && !e.ctrlKey) { e.preventDefault(); openBox(".youtube"); }
+  if (e.key === "k" && !e.metaKey && !e.ctrlKey) { e.preventDefault(); openBox(".grok"); }
+  if (e.key === "Escape") close(true);
+});
+document.querySelectorAll(".gsearch form").forEach(f => {
+  f.addEventListener("submit", () => setTimeout(() => close(true), 100));
+});
+document.querySelectorAll(".gsearch input").forEach(inp => {
+  inp.addEventListener("input", () => {
+    clearTimeout(idleBox);
+    idleBox = setTimeout(() => close(false), 10000);
   });
-  document.querySelectorAll(".gsearch form").forEach(f => {
-    f.addEventListener("submit", () => setTimeout(close, 100));
-  });
-  document.querySelectorAll(".gsearch input").forEach(inp => {
-    inp.addEventListener("input", () => {
-      clearTimeout(idleBox);
-      idleBox = setTimeout(close, 10000);
-    });
-  });
+});
 })();

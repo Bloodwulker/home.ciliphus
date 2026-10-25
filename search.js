@@ -47,7 +47,7 @@
     box.classList.add("show");
     setTimeout(() => input.focus(), 50);
     clearTimeout(idleBox);
-    idleBox = setTimeout(() => {
+    idleBox = setTimeout(() => close(false), 10000);
   const open = document.querySelector(".gsearch.show");
   if (open) open.classList.add("rumble");
   close();

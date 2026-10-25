@@ -81,10 +81,12 @@
         tick();
       }
     }
+    open.querySelector("input").style.opacity = "0";
     setTimeout(() => open.classList.add("gone"), 80);
     setTimeout(() => {
       open.hidden = true;
       open.classList.remove("show", "gone");
+      open.querySelector("input").style.opacity = "";
       document.body.classList.remove("searching");
     }, 900);
   }

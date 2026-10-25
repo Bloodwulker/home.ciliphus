@@ -63,8 +63,8 @@
   function explode(open) {
   open.classList.remove("rumble");
   const r = open.getBoundingClientRect();
-  const cx = r.left + r.width / 2;
-  const cy = r.top + 80;
+const cx = r.left + r.width / 2;
+const cy = r.top + 120;
   const group = document.querySelector(".sparklers");
   if (group) {
     for (let i = 0; i < 70; i++) {
@@ -72,15 +72,15 @@
       use.setAttribute("href", "#sparkler-star");
       use.setAttribute("fill", COLORS[(Math.random() * COLORS.length) | 0]);
       const ang = Math.random() * Math.PI * 2;
-      const spd = 4 + Math.random() * 10;
+      const spd = 2 + Math.random() * 6;
       let x = cx, y = cy, life = 1;
       group.appendChild(use);
       const tick = () => {
         x += Math.cos(ang) * spd;
         y += Math.sin(ang) * spd;
-        life -= 0.016;
+        life -= 0.012;
         if (life <= 0) { use.remove(); return; }
-        use.setAttribute("transform", `translate(${x} ${y}) scale(${life * 3})`);
+        use.setAttribute("transform", `translate(${x} ${y}) scale(${life * 4})`);
         use.setAttribute("opacity", life);
         requestAnimationFrame(tick);
       };

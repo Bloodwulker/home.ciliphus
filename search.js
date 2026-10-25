@@ -47,11 +47,8 @@
     box.classList.add("show");
     setTimeout(() => input.focus(), 50);
     clearTimeout(idleBox);
-    idleBox = setTimeout(() => close(false), 10000);
-  const open = document.querySelector(".gsearch.show");
-  if (open) open.classList.add("rumble");
-  close();
-}, 10000);
+idleBox = setTimeout(() => close(false), 10000);
+}
   }
   function close(fromEscape) {
   clearTimeout(idleBox);

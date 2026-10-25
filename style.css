@@ -323,6 +323,22 @@ html, body {
   background: center / cover no-repeat;
   box-shadow: 0 0 0 3px #eee, 0 0 0 6px #222;
 }
+.gsearch.gone::before {
+  animation: none !important;
+  opacity: 0 !important;
+  transform: scale(2) !important;
+  transition: none !important;
+}
+.gsearch.show.rumble::before {
+  animation: searchrumble 0.08s linear infinite !important;
+}
+@keyframes searchrumble {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  25%  { transform: translate(-6px, 4px) rotate(-2deg); }
+  50%  { transform: translate(6px, -4px) rotate(2deg); }
+  75%  { transform: translate(-4px, -3px) rotate(-1deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
 .gsearch.boom::before {
   transform: scale(3.5);
   opacity: 0;

@@ -61,39 +61,39 @@
     }
   }
   function explode(open) {
-    open.classList.remove("rumble");
-    const r = open.getBoundingClientRect();
-    const cx = r.left + r.width / 2;
-    const cy = r.top + 80;
-    const group = document.querySelector(".sparklers");
-    if (group) {
-      for (let i = 0; i < 60; i++) {
-        const use = document.createElementNS(ns, "use");
-        use.setAttribute("href", "#sparkler-star");
-        use.setAttribute("fill", COLORS[(Math.random() * COLORS.length) | 0]);
-        const ang = Math.random() * Math.PI * 2;
-        const spd = 3 + Math.random() * 8;
-        let x = cx, y = cy, life = 1;
-        group.appendChild(use);
-        const tick = () => {
-          x += Math.cos(ang) * spd;
-          y += Math.sin(ang) * spd;
-          life -= 0.018;
-          if (life <= 0) { use.remove(); return; }
-          use.setAttribute("transform", `translate(${x} ${y}) scale(${life * 2.5})`);
-          use.setAttribute("opacity", life);
-          requestAnimationFrame(tick);
-        };
-        tick();
-      }
+  open.classList.remove("rumble");
+  const r = open.getBoundingClientRect();
+  const cx = r.left + r.width / 2;
+  const cy = r.top + 80;
+  const group = document.querySelector(".sparklers");
+  if (group) {
+    for (let i = 0; i < 70; i++) {
+      const use = document.createElementNS(ns, "use");
+      use.setAttribute("href", "#sparkler-star");
+      use.setAttribute("fill", COLORS[(Math.random() * COLORS.length) | 0]);
+      const ang = Math.random() * Math.PI * 2;
+      const spd = 4 + Math.random() * 10;
+      let x = cx, y = cy, life = 1;
+      group.appendChild(use);
+      const tick = () => {
+        x += Math.cos(ang) * spd;
+        y += Math.sin(ang) * spd;
+        life -= 0.016;
+        if (life <= 0) { use.remove(); return; }
+        use.setAttribute("transform", `translate(${x} ${y}) scale(${life * 3})`);
+        use.setAttribute("opacity", life);
+        requestAnimationFrame(tick);
+      };
+      tick();
     }
-    open.classList.add("boom");
-    setTimeout(() => {
-      open.hidden = true;
-      open.classList.remove("show", "boom", "rumble");
-      document.body.classList.remove("searching");
-    }, 400);
   }
+  open.classList.add("gone");
+  setTimeout(() => {
+    open.hidden = true;
+    open.classList.remove("show", "boom", "rumble", "gone");
+    document.body.classList.remove("searching");
+  }, 700);
+}
   addEventListener("keydown", (e) => {
     const typing = document.activeElement.tagName === "INPUT";
     if (typing) {
